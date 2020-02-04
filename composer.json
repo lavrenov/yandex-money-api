@@ -1,0 +1,21 @@
+{
+    "name": "lavrenov/yandex-money-api",
+    "description": "PHP SDK for Yandex Money API",
+    "keywords": ["yandex", "money", "php", "sdk", "payment", "yandex.money", "api"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lavrenov Evgeny",
+            "email": "lion06@inbox.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "YandexMoney\\": "src/YandexMoneyAPI/"
+        }
+    }
+}
