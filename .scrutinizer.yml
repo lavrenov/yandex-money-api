@@ -1,0 +1,11 @@
+build:
+  nodes:
+    coverage:
+      tests:
+        override:
+          - command: 'vendor/bin/phpunit tests --coverage-clover=coverage.clover'
+            coverage:
+              file: './coverage.clover'
+
+tools:
+  external_code_coverage: true
