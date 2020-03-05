@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583407711">
-  <project timestamp="1583407711">
+<coverage generated="1583408386">
+  <project timestamp="1583408386">
     <package name="YandexMoney">
       <file name="C:\OSPanel\domains\yandex\src\YandexMoneyAPI\API.php">
         <class name="YandexMoney\API" namespace="YandexMoney">
