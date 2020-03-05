@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<phpunit bootstrap="./vendor/autoload.php"
+<phpunit bootstrap="vendor/autoload.php"
          backupGlobals="true"
          colors="true"
          convertErrorsToExceptions="true"
@@ -13,7 +13,7 @@
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">./src/</directory>
+            <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
 </phpunit>
