@@ -4,5 +4,5 @@ build:
       tests:
         override:
             coverage:
-              file: ./coverage.xml
+              file: ./coverage.clover
               format: clover
