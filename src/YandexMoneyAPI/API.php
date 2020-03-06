@@ -255,7 +255,7 @@ class API {
 			default:
 				if($statusCode >= 500) {
                     self::$responseSuccess = false;
-					return ['error' => $statusCode . ' Server error'];
+					return (object)['error' => $statusCode . ' Server error'];
 				} else {
 				    $result = json_decode($body);
                     self::$responseSuccess = true;
