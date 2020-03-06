@@ -18,8 +18,8 @@ class APITest extends TestCase
 
     public function testAccountInfo()
     {
-        $result = (array)$this->yandex->accountInfo();
-        $this->assertEquals($this->account, $result['account']);
+        $result = $this->yandex->accountInfo();
+        $this->assertEquals($this->account, $result->account);
     }
 
     public function testOperationHistory()
