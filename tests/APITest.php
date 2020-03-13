@@ -17,6 +17,7 @@ class APITest extends TestCase
         $this->clientId = $_ENV['YANDEX_CLIENT_ID'] ?? '';
         $this->token = $_ENV['YANDEX_TOKEN'] ?? '';
         print_r($_ENV);
+        var_dump(getenv('YANDEX_TOKEN'));
         $this->yandex = new API($this->token);
     }
 
