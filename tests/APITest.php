@@ -22,26 +22,35 @@ class APITest extends TestCase
     public function testAccountInfo()
     {
         $result = $this->yandex->accountInfo();
-        $this->assertEquals('Token is empty', $result->error);
+        if (property_exists($result, 'error'))
+            $this->fail($result->error);
+        $this->assertEquals($this->account, $result->account);
     }
 
     public function testOperationHistory()
     {
         $result = $this->yandex->operationHistory();
-        $this->assertEquals('Token is empty', $result->error);
+        if (property_exists($result, 'error'))
+            $this->fail($result->error);
+        $this->assertObjectHasAttribute('operations', $result);
     }
 
     public function testOperationDetails()
     {
         $result = $this->yandex->operationHistory();
-        if (!property_exists($result, 'error'))
-            $result = $this->yandex->operationDetails($result->operations[0]->operation_id);
-        $this->assertEquals('Token is empty', $result->error);
+        if (property_exists($result, 'error'))
+            $this->fail($result->error);
+        $result = $this->yandex->operationDetails($result->operations[0]->operation_id);
+        if (property_exists($result, 'error'))
+            $this->fail($result->error);
+        $this->assertObjectHasAttribute('operation_id', $result);
     }
 
     public function testRequestPaymentPhone()
     {
         $result = $this->yandex->requestPaymentPhone('79179249957', 10.0);
-        $this->assertEquals('Token is empty', $result->error);
+        if (property_exists($result, 'error'))
+            $this->fail($result->error);
+        $this->assertObjectHasAttribute('request_id', $result);
     }
 }
