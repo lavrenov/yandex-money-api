@@ -13,11 +13,9 @@ class APITest extends TestCase
 
     protected function setUp(): void
     {
-        $this->account = $_ENV['YANDEX_ACCOUNT'] ?? '';
-        $this->clientId = $_ENV['YANDEX_CLIENT_ID'] ?? '';
-        $this->token = $_ENV['YANDEX_TOKEN'] ?? '';
-        print_r($_ENV);
-        var_dump(getenv('YANDEX_TOKEN'));
+        $this->account = getenv('YANDEX_ACCOUNT') ?? '';
+        $this->clientId = getenv('YANDEX_CLIENT_ID') ?? '';
+        $this->token = getenv('YANDEX_TOKEN') ?? '';
         $this->yandex = new API($this->token);
     }
 
