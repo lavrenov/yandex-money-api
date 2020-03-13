@@ -19,25 +19,26 @@ class APITest extends TestCase
     public function testAccountInfo()
     {
         $result = $this->yandex->accountInfo();
-        $this->assertEquals($this->account, $result->account);
+        $this->assertEquals('Token is empty', $result->error);
     }
 
     public function testOperationHistory()
     {
         $result = $this->yandex->operationHistory();
-        $this->assertObjectHasAttribute('operations', $result);
+        $this->assertEquals('Token is empty', $result->error);
     }
 
     public function testOperationDetails()
     {
         $result = $this->yandex->operationHistory();
-        $result = $this->yandex->operationDetails($result->operations[0]->operation_id);
-        $this->assertObjectHasAttribute('operation_id', $result);
+        if (!property_exists($result, 'error'))
+            $result = $this->yandex->operationDetails($result->operations[0]->operation_id);
+        $this->assertEquals('Token is empty', $result->error);
     }
 
     public function testRequestPaymentPhone()
     {
         $result = $this->yandex->requestPaymentPhone('79179249957', 10.0);
-        $this->assertObjectHasAttribute('request_id', $result);
+        $this->assertEquals('Token is empty', $result->error);
     }
 }

@@ -54,7 +54,7 @@ class API {
 	function sendAuthRequest(string $url, array $options = [])
 	{
 		if ($this->token == null)
-			return ['error' => 'Token is empty'];
+			return (object)['error' => 'Token is empty'];
 		return self::sendRequest($url, $options, $this->token);
 	}
 
