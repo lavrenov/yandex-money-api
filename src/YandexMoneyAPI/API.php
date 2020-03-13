@@ -60,7 +60,7 @@ class API {
 
 	function accountInfo()
 	{
-		return self::sendAuthRequest('/api/account-info');
+		return $this->sendAuthRequest('/api/account-info');
 	}
 
 	function operationHistory(string $from = '', string $till = '', string $type = '', int $startRecord = 0, int $records = 30)
@@ -216,6 +216,9 @@ class API {
 		$fullUrl = self::$domain . $url;
 
 		$curl = curl_init($fullUrl);
+		if ($curl == false)
+            return (object)['error' => 'Curl init failed'];
+
 		if($token !== null) {
 			curl_setopt($curl, CURLOPT_HTTPHEADER, array(
 				'Authorization: Bearer ' . $token
