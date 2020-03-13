@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  YANDEX_ACCOUNT: ${{ secrets.YANDEX_ACCOUNT }}
+  YANDEX_CLIENT_ID: ${{ secrets.YANDEX_CLIENT_ID }}
+  YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
+
 jobs:
   installAndTest:
     runs-on: ubuntu-latest
@@ -20,7 +25,3 @@ jobs:
 
     - name: Run test suite
       run: vendor/bin/phpunit
-      env:
-        YANDEX_ACCOUNT: ${{ secrets.YANDEX_ACCOUNT }}
-        YANDEX_CLIENT_ID: ${{ secrets.YANDEX_CLIENT_ID }}
-        YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}
